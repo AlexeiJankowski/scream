@@ -1,0 +1,12 @@
+.scream {
+  margin: 1rem;
+  padding: 1.5rem;
+  line-height: 1.25;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.scream:hover {
+  border: 1px solid black;
+  transition: 1s;
+}

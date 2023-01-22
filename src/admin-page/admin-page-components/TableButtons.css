@@ -1,0 +1,24 @@
+.btn__container {
+  display: flex;
+  align-items: center;
+  align-content: flex-end;
+  margin: 0 0.75rem;
+}
+
+.btn__table {
+  color: #a70202;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  margin: 0 0.35rem;
+}
+.btn__table:hover { 
+  transition: 0.35s;
+}
+
+.btn__table--edit {
+  text-decoration: none;
+  color: black;
+}
+.btn__table--edit:active {
+  background-color: transparent;
+}

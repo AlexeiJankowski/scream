@@ -1,0 +1,49 @@
+
+
+header {
+  position: relative;
+}
+
+.menu {
+  margin: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+.site-title,
+.login-logo {  
+  cursor: pointer;
+}
+
+.site-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Permanent Marker', 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  padding: 1.25rem;
+  font-size: 2.5rem;
+  width: 10rem;
+  margin: auto;
+}
+
+.login-logo {
+  padding: 2rem;
+  font-size: 1.7rem;
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.login-logo:hover {
+  color: grey;
+  transition: 0.1s;
+  border-bottom: 5px solid black;
+}
+
+.fa-right-to-bracket {
+  transition: 1s;
+}
+
+.rotate-to-bracket {
+  transform: rotate(180deg);
+  transition: 1s;
+}

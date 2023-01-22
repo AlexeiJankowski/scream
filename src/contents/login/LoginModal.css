@@ -1,0 +1,94 @@
+.login-modal {  
+  display: flex;
+  position: fixed;
+  z-index: 999; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.75);
+  align-items: center;  
+  justify-content: center;
+  -webkit-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+  border: 1px solid #fff;  
+}
+.login-modal:hover {  
+  -webkit-transition: background-color 1s;
+  -ms-transition: background-color 1s;
+  transition: background-color 1s;
+}
+.login-modal__content {
+  position: relative;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 1px 1px 1px 1px black;
+}
+.login-modal__close {
+  cursor: pointer;
+  font-size: 1.5rem;
+  float: right;
+}
+.login-modal__close:hover {
+  transform: rotate(90deg);
+  transition: 0.5s;
+}
+.login-modal__btn {
+  margin: 0.5rem;
+  float: right;
+}
+
+.login-modal__error {
+  transition: 1s;
+  color: var(--error);
+}
+
+.hide {
+  display: none;
+}
+.error-border {
+  border: 1px solid var(--error);
+  transition: 1s;
+}
+.background-error:hover {
+  background-color: var(--modal-background-start);
+}
+
+.form__input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form__input {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+.form__input:hover,
+.form__input:active {
+  background-color: rgb(233, 233, 233);
+  box-shadow: 1px 1px 2px 2px black;
+}
+
+.btn__modal {
+  padding: 0.6rem;
+  margin: 0.5rem;
+  margin-top: 1rem;
+  float: right;
+}
+
+.login-modal__register {
+  color: black;
+  position: absolute;
+  bottom: 1.75rem;
+  left: 1rem;
+}
+
+.form__label {
+  text-align: left;
+}

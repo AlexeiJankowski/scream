@@ -1,0 +1,9 @@
+.footer-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Permanent Marker', 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  font-size: 2rem;
+  width: 20rem;
+  margin: auto;
+  padding: 1.5rem;
+}

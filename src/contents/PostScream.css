@@ -1,0 +1,29 @@
+.scream-wrapper {
+  margin: 1rem auto;  
+}
+
+.scream-input {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  resize: none;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px 2px black;
+}
+
+.btn--scream-submit {  
+  margin: 1rem 0;  
+  padding: 1rem 3rem;  
+  font-size: 1.1rem;
+}
+
+.scream-input:hover {
+  box-shadow: 1px 1px 2px 2px grey;
+  background-color: rgb(233, 233, 233);
+}
+
+.scream-submit:focus {
+  box-shadow: -1px -1px 2px 2px black;
+}
