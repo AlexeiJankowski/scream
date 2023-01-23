@@ -17,10 +17,10 @@ const Header = ({isAdmin, setIsAdmin}) => {
         {!loggedIn && <li 
           className="login-logo"
           onClick={() => setOpenLoginModal(prev => !prev)}
-          ><i className="fa-solid fa-right-to-bracket"></i></li>}
+          ><i className="fa-solid fa-right-to-bracket rotate-back"></i></li>}
         {loggedIn && <li 
-          className="login-logo"
-          onClick={() => setOpenLoginModal(prev => !prev)}
+          className="login-logo"          
+          onClick={() => setLoggedIn(prev => !prev)}
           ><i className="fa-solid fa-right-to-bracket rotate-to-bracket"></i></li>}
       </ul>
       {openLoginModal && 

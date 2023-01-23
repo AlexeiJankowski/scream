@@ -51,7 +51,7 @@ const LoginModal = ({setOpenLoginModal, setOpenRegisterModal, setLoggedIn, setIs
               className="login-modal__close"
               onClick={() => setOpenLoginModal(prev => !prev)}>&#10006;</span>
             <h2 className="login-modal__header">Login</h2>
-            <span className={`login-modal__error ${showError ? '' : 'hide'}`}>Wrong Email or Password</span>
+            <p className={`login-modal__error ${showError ? '' : 'hide'}`}>Wrong Email or Password</p>
             <form className="form form__login">
               <div className="form__input-wrapper">
                 <label className="form__label" htmlFor="email">Email : </label>
