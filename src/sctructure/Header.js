@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import LoginModal from '../contents/login/LoginModal';
-import RegisterModal from '../contents/login/RegisterModal';
+import RegisterModal from '../contents/register/RegisterModal';
 
 import './Header.css';
 
