@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-// import { getUsers } from '../data/usersData';
+import { EMAIL_REGEX, PASSWORD_REGEX } from '../regex/regex';
+import { createUser } from '../../data/users';
 
 import '../login/LoginModal.css';
-
-const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const RegisterModal = ({setOpenLoginModal, setOpenRegisterModal, setLoggedIn, setIsAdmin}) => {  
   const [email, setEmail] = useState(""); 
@@ -58,6 +55,7 @@ const RegisterModal = ({setOpenLoginModal, setOpenRegisterModal, setLoggedIn, se
     }
     else if (validEmail && validPassword && validMatch) {
       setShowError(false);
+      createUser({email, password})
     }
   }
 
@@ -97,17 +95,17 @@ const RegisterModal = ({setOpenLoginModal, setOpenRegisterModal, setLoggedIn, se
                 <input 
                   className="form__input" 
                   id="password_reg"
-                  type="password_reg"
+                  type="password"
                   name="password_reg"
                   onChange={(e) => onChangeHandler(e, setPassword)}
                   required
                   aria-invalid={validPassword ? "false" : "true"}
-                  aria-describedby="pwdnote"
+                  aria-describedby="passwordnote"
                   onFocus={() => setPasswordFocus(true)}
                   onBlur={() => setPasswordFocus(false)}
                   ></input>
 
-                <p id="pwdnote" className={passwordFocus && !validPassword ? "instructions" : "hide"}>                    
+                <p id="passwordnote" className={passwordFocus && !validPassword ? "instructions" : "hide"}>                    
                   8 to 24 characters.<br />
                   Must include uppercase and lowercase letters, a number and a special character.<br />
                   Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
@@ -119,7 +117,7 @@ const RegisterModal = ({setOpenLoginModal, setOpenRegisterModal, setLoggedIn, se
                 <input 
                   className="form__input" 
                   id="password_reg_2"
-                  type="password_reg_2"
+                  type="password"
                   name="password_reg_2"
                   onChange={(e) => onChangeHandler(e, setMatchPassword)}
                   required

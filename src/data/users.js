@@ -9,7 +9,7 @@ export const getUsers = () => {
 }
 
 export const createUser = info => {
-
+  return axios.post('/api/users', info);
 }
 
 export const editUser = (id, info) => {

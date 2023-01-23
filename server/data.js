@@ -33,8 +33,10 @@ const screams = [
 ];
 
 const users = [
-  {id: 0, email: 'example1@email.com', password: 'P@ssword!'},
-  {id: 1, email: 'example2@email.com', password: 'P@ssword!'},
+  {id: 0, email: 'example1@email.com', password: 'P@ssword!', admin: true},
+  {id: 1, email: 'example2@email.com', password: 'P@ssword!', admin: false},
+  {id: 2, email: 'example3@email.com', password: 'P@ssword!', admin: false},
+  {id: 3, email: 'example4@email.com', password: 'P@ssword!', admin: false}
 ];
 
 module.exports = {screams, users};

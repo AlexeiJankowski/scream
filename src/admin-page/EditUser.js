@@ -23,7 +23,7 @@ const EditUser = () => {
   }
 
   useEffect(() => {    
-    getUser(params.id).then(res => setUser(res.data))
+    getUser(params.id).then(res => setUser(res.data));
   }, [params.id])
 
   if (user) {

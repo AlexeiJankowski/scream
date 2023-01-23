@@ -1,39 +1,45 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-// import { getUsers } from '../data/usersData';
+import { getUsers } from '../../data/users';
 
 import './LoginModal.css';
 
 const LoginModal = ({setOpenLoginModal, setOpenRegisterModal, setLoggedIn, setIsAdmin}) => {
   const [user, setUser] = useState({
-    name: "",
+    email: "",
     password: ""
-  }); 
+  });
+
+  const [emailFocus, setEmailFocus] = useState(false);
+  const [passwordFocus, setPasswordFocus] = useState(false);
+
   const [showError, setShowError] = useState(false);
-  
+  const [error, setError] = useState("");
 
   const onChangeHandler = e => {
-    let newUser = {
-      ...user,
-      [e.target.name]: e.target.value
+    if (e.target.value != null && e.target.value !== '') {
+      let newUser = {
+        ...user,
+        [e.target.name]: e.target.value
+      } 
+      setUser(newUser); 
     }    
-    setUser(newUser);    
   }
 
-  // const logginIn = user => {
-  //   getUsers().then(users => users.data.find(userf => 
-  //       userf.email === user.email && userf.password === user.password)).then(res => {
-  //         if(res) {     
-  //           setLoggedIn(true);
-  //           setOpenLoginModal(false);
-  //           if (res.admin) {
-  //             setIsAdmin(true);
-  //           }
-  //         } else {
-  //           setShowError(true);
-  //         }      
-  //       });
-  // }
+  const logginIn = user => {
+    getUsers().then(users => users.data.find(userf => 
+      userf.email === user.email && userf.password === user.password)).then(res => {
+        if(res) {     
+          setLoggedIn(true);
+          setOpenLoginModal(false);
+          if (res.admin) {
+            setIsAdmin(true);
+          }
+        } else {
+          setShowError(true);
+        }      
+      });
+  }
 
   return (
     <>      
@@ -60,14 +66,14 @@ const LoginModal = ({setOpenLoginModal, setOpenRegisterModal, setLoggedIn, setIs
                 <input 
                   className="form__input" 
                   id="password"
-                  // type="password"
+                  type="password"
                   name="password"
                   onChange={onChangeHandler}></input>
               </div>
               <button 
                 type="submit" 
                 className="btn btn__modal"
-                // onClick={(e) => {e.preventDefault(); logginIn(user)}}
+                onClick={(e) => {e.preventDefault(); logginIn(user)}}
                 >
                 Login
               </button>
