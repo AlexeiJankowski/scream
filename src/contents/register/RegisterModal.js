@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { EMAIL_REGEX, PASSWORD_REGEX } from '../regex/regex';
-import { createUser } from '../../data/users';
+import { createUser, getUsers } from '../../data/users';
 
 import '../login/LoginModal.css';
 
-const RegisterModal = ({setOpenLoginModal, setOpenRegisterModal, setLoggedIn, setIsAdmin}) => {  
+const RegisterModal = ({setOpenLoginModal, setOpenRegisterModal}) => {  
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState("");
   const [matchPassword, setMatchPassword] = useState("");
@@ -43,7 +43,18 @@ const RegisterModal = ({setOpenLoginModal, setOpenRegisterModal, setLoggedIn, se
     setOpenRegisterModal(false);
   }
 
-  const register = e => {
+  const isUserExists = async email => {
+    const users = await getUsers();
+
+    const isCopy = users.data.find(userf => userf.email === email);
+    console.log('isCopY >>> ', isCopy)
+    if (isCopy && isCopy != null) {
+      return true;
+    } 
+    return false;
+  }
+
+  const register = async e => {
     e.preventDefault();
     if (!validEmail) {
       setShowError(true);
@@ -54,8 +65,16 @@ const RegisterModal = ({setOpenLoginModal, setOpenRegisterModal, setLoggedIn, se
       setError("Wrong Password");
     }
     else if (validEmail && validPassword && validMatch) {
-      setShowError(false);
-      createUser({email, password})
+      if (await isUserExists(email)) {
+        console.log('wtF?')
+        setError("User with this email is already exists");
+        setShowError(true);        
+      }
+      else if (!(await isUserExists(email))) {
+        setShowError(false);
+        createUser({email, password});
+        closeModals();
+      }      
     }
   }
 
