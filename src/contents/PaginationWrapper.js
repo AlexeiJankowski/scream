@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Pagination from './Pagination';
 
-const PaginationWrapper = ({getItems, posts, setPosts, recordsPerPage}) => {
+const PaginationWrapper = ({getItems, setPosts, recordsPerPage, refresh}) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
   const [numberOfPages, setNumberOfPages] = useState(1);
   const indexOfLastRecord = currentPageNumber * recordsPerPage;
@@ -20,7 +20,7 @@ const PaginationWrapper = ({getItems, posts, setPosts, recordsPerPage}) => {
         return res;
       })
       .then(res => setPosts(res.data.slice(indexOfFirstRecord, indexOfLastRecord))); 
-  },[setPosts, getItems, recordsPerPage, indexOfFirstRecord, indexOfLastRecord]);
+  },[setPosts, getItems, recordsPerPage, indexOfFirstRecord, indexOfLastRecord, refresh]);
 
   return (
     <Pagination 

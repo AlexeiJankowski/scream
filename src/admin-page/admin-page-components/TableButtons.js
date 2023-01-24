@@ -5,7 +5,7 @@ import { deleteUser } from '../../data/users';
 
 import './TableButtons.css';
 
-const TableButtons = ({itemId, setRefreshTable, type}) => {
+const TableButtons = ({itemId, setRefresh, type}) => {
   const onDelete = (id, type) => {
     if (type === "post") {
       deleteScream(id);
@@ -13,7 +13,7 @@ const TableButtons = ({itemId, setRefreshTable, type}) => {
     if (type === "user") {
       deleteUser(id);
     }   
-    setRefreshTable(prev => !prev);
+    setRefresh(prev => !prev);
   }
 
   return (

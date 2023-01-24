@@ -9,6 +9,5 @@ export const postScream = scream => {
 }
 
 export const deleteScream = id => {
-  console.log('deleting')
   return axios.delete(`/api/screams/${id}`);
 }

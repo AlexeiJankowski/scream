@@ -3,24 +3,14 @@ import TableButtons from './TableButtons';
 
 import './ResultTable.css';
 
-const ResultTable = ({items, head, type}) => {
-  // const [items, setItems] = useState([]);
-  const [refreshTable, setRefreshTable] = useState(false);
+const ResultTable = ({items, head, type, setRefresh}) => {
+  const [innerItems, setInnerItems] = useState([]);
+  // const [refresh, setRefresh] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   // useEffect(() => {
-  //   setIsLoading(true);
-  //   let isMounted = true;
-  //   getItems().then(item => {
-  //     if (isMounted) {
-  //       setItems(item.data);
-  //       setIsLoading(true);
-  //     }      
-  //   })
-  //   return () => {
-  //     isMounted = false;
-  //   }
-  // }, [refreshTable])
+  //   console.log('refreshtable')
+  // },[refresh])
 
   const cutText = text => {
     return `${text.slice(0, 200)}...`;
@@ -49,7 +39,7 @@ const ResultTable = ({items, head, type}) => {
                   <td className="table-description table-description__result-table--button-container">
                     <TableButtons 
                       itemId={item.id}
-                      setRefreshTable={setRefreshTable}
+                      setRefresh={setRefresh}
                       type={type}
                     />
                   </td>
